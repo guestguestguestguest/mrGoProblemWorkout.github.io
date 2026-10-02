@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MrGoProblemWorkout – Support</title>
+<meta name="description" content="Support, guide, problem collections and privacy policy for MrGoProblemWorkout, an iOS app for practicing Go problems.">
+<meta name="apple-itunes-app" content="app-id=6801664405">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<link rel="apple-touch-icon" href="app-icon-180.png">
+<style>
+:root{
+  --kaya:#e9c46a; --kaya-soft:#f7ecd0; --paper:#fffdf8; --ink:#1d1a16; --muted:#6f6556;
+  --line:#e8dfcc; --link:#8a5a00; --stone-w:#fff; --card:#fff;
+}
+@media (prefers-color-scheme:dark){
+  :root{--kaya:#c9a24a; --kaya-soft:#2a2418; --paper:#14120f; --ink:#f3ede2; --muted:#b3a893;
+        --line:#3a3226; --link:#f0c870; --card:#1d1a15;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+h1,h2{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-weight:700;letter-spacing:-.01em}
+a{color:var(--link)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+/* hero on board */
+.hero{background:var(--kaya);color:#1d1a16;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;opacity:.18;
+  background-image:linear-gradient(#000 1px,transparent 1px),linear-gradient(90deg,#000 1px,transparent 1px);
+  background-size:44px 44px;background-position:-1px -1px}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1fr 1.05fr;gap:24px;align-items:center;padding-top:56px;padding-bottom:56px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;margin-bottom:14px}
+.brand img{width:44px;height:44px;border-radius:11px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.hero h1{font-size:clamp(32px,5vw,50px);line-height:1.08;margin:0 0 14px}
+.hero p{font-size:19px;max-width:30em;margin:0 0 24px}
+.hero .badge img{height:50px;width:auto}
+.phones{position:relative;height:430px}
+.phones img{position:absolute;width:160px;height:auto;border-radius:22px;border:5px solid #111;box-shadow:0 16px 36px rgba(0,0,0,.35);transition:transform .2s}
+.phones img:nth-child(1){left:0;top:46px;transform:rotate(-9deg);z-index:1}
+.phones img:nth-child(2){left:22%;top:12px;transform:rotate(-3deg);z-index:2}
+.phones img:nth-child(3){right:22%;top:12px;transform:rotate(3deg);z-index:3}
+.phones img:nth-child(4){right:0;top:46px;transform:rotate(9deg);z-index:4}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){.phones img:hover{z-index:9;transform:rotate(0) scale(1.06)}}
+
+/* section nav */
+.tabs{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:22px;overflow-x:auto;padding-top:12px;padding-bottom:12px;font-size:15px;white-space:nowrap}
+.tabs a{text-decoration:none;color:var(--muted);font-weight:500}
+.tabs a:hover{color:var(--ink)}
+
+section{padding:56px 0}
+section h2{font-size:32px;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 28px}
+
+/* stone bullets */
+.stones{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:22px 40px}
+.stones li{position:relative;padding-left:40px}
+.stones li::before{content:"";position:absolute;left:0;top:4px;width:24px;height:24px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#666,#000 70%);box-shadow:0 2px 3px rgba(0,0,0,.3)}
+.stones li:nth-child(even)::before{background:radial-gradient(circle at 35% 30%,#fff,#d9d9d9 75%);border:1px solid #bbb}
+.stones h3{margin:0 0 4px;font-size:18px}
+.stones p{margin:0;color:var(--muted);font-size:16px}
+
+.band{background:var(--kaya-soft)}
+.colls{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.coll{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;text-decoration:none;color:var(--ink);display:block}
+.coll:hover{border-color:var(--kaya)}
+.coll b{display:block;font-size:17px}
+.coll small{color:var(--muted)}
+.credit{font-size:15px;color:var(--muted);margin-top:18px}
+
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0 0 0 22px;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 18px 18px}
+.timeline li::before{content:"";position:absolute;left:-31px;top:6px;width:16px;height:16px;border-radius:50%;background:#111;border:2px solid var(--paper)}
+.timeline li:nth-child(even)::before{background:#fff;border-color:#bbb}
+.timeline b{font-family:ui-monospace,Menlo,monospace;font-size:15px}
+.timeline p{margin:2px 0 0;color:var(--muted);font-size:15px}
+details summary{cursor:pointer;color:var(--link);font-weight:600;margin:8px 0 16px}
+
+.privacy{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.privacy div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.privacy h3{margin:0 0 6px;font-size:17px}
+.privacy p,.privacy ul{margin:0;font-size:15px;color:var(--muted)}
+
+.contact{text-align:center;background:#1d1a16;color:#f3ede2}
+.contact a.btn{display:inline-block;background:var(--kaya);color:#1d1a16;font-weight:700;text-decoration:none;padding:13px 26px;border-radius:999px;margin-top:8px}
+footer{background:#1d1a16;color:#9b9284;text-align:center;font-size:14px;padding:0 0 36px}
+
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr;text-align:center;padding-top:36px;padding-bottom:36px}
+  .brand{justify-content:center}.hero p{margin-left:auto;margin-right:auto}
+  .phones{height:300px;max-width:380px;margin:0 auto;width:100%}
+  .phones img{width:116px;border-width:4px;border-radius:16px}
+  .phones img:nth-child(1),.phones img:nth-child(4){top:34px}
+  .stones,.privacy{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="brand"><img src="app-icon-180.png" alt="" width="44" height="44"> MrGoProblemWorkout · Support</div>
+      <h1>Import once, practice forever.</h1>
+      <p>An iOS app for Go players to improve their strength through repetition. Bring your own SGF problems, solve them, then race the clock in timed drills.</p>
+      <a class="badge" href="https://apps.apple.com/us/app/mrgoproblemworkout/id6801664405"><img src="dlAppStoreLogo.svg" alt="Download on the App Store" width="150" height="50"></a>
+    </div>
+    <div class="phones">
+      <img src="coll-ss.jpg" alt="Collections screen with progress bars" width="160" height="346">
+      <img src="solv-ss.jpg" alt="A solved problem on a wooden Go board" width="160" height="346">
+      <img src="magnifier-ss.jpg" alt="The board magnifier in use" width="160" height="346">
+      <img src="drill-best-ss.jpg" alt="Drill finished with a new best time" width="160" height="346">
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Page sections"><div class="wrap">
+  <a href="#how">How it works</a><a href="#collections">Collections</a><a href="#guide">Guide</a><a href="#versions">Versions</a><a href="#privacy">Privacy</a><a href="#contact">Contact</a>
+</div></nav>
+
+<main>
+  <section id="how"><div class="wrap">
+    <h2>How it works</h2>
+    <p class="sub">Improve your strength through repetitive problem solving.</p>
+    <ul class="stones">
+      <li><h3>Import SGF problems</h3><p>A file, a whole folder, or a ZIP archive — one problem per file. Or start with the 24-problem <i>Xuanxuan Qijing</i> starter bundle.</p></li>
+      <li><h3>Organize by collection &amp; tag</h3><p>Every import becomes a collection. Add tags and favorites with a swipe.</p></li>
+      <li><h3>Learn from your mistakes</h3><p>A built-in <b>Most Difficult</b> collection gathers the problems you miss most for extra attention.</p></li>
+      <li><h3>Drill against the clock</h3><p>Workout your brain with timed runs, no hints. Best times are saved — and celebrated.</p></li>
+    </ul>
+  </div></section>
+
+  <section id="collections" class="band"><div class="wrap">
+    <h2>Free collections</h2>
+    <p class="sub">Download a ZIP and import it, or fetch them directly inside the app under <b>+ › Download Collections</b>.</p>
+    <div class="colls">
+      <a class="coll" href="299 basic tesuji.zip" download><b>299 Basic Tesuji</b><small>ZIP · 93 KB</small></a>
+      <a class="coll" href="390 basic tsumego.zip" download><b>390 Basic Tsumego</b><small>ZIP · 128 KB</small></a>
+      <a class="coll" href="gengen gokyo.zip" download><b>Gengen Gokyo</b><small>ZIP · 99 KB</small></a>
+      <a class="coll" href="gokyo shumyo.zip" download><b>Gokyo Shumyo</b><small>ZIP · 185 KB</small></a>
+      <a class="coll" href="shikatsu myoki.zip" download><b>Shikatsu Myoki</b><small>ZIP · 96 KB</small></a>
+    </div>
+    <p class="credit">Collections courtesy of <a href="https://github.com/benjaminmantle/baduk-study-material/tree/master">benjaminmantle/baduk-study-material</a>. More SGF problems: <a href="https://github.com/gogameguru/go-problems/tree/master/weekly-go-problems">Go Game Guru weekly problems</a>.</p>
+  </div></section>
+
+  <section id="guide"><div class="wrap">
+    <h2>Guide</h2>
+    <p class="sub">Everything is a tap or a swipe away.</p>
+    <ul class="stones">
+      <li><h3>Problems tab</h3><p>All problems in one list. Filter with the buttons at upper left. Swipe left to tag; swipe right to favorite. Tap <b>+</b> for import options.</p></li>
+      <li><h3>Collections tab</h3><p>Swipe left to rename, merge or delete. <b>Most Difficult</b> and <b>Favorites</b> update automatically as you play.</p></li>
+      <li><h3>Drills tab</h3><p>Tap <b>+</b>, pick problems, name it. Tap <b>Run</b> to solve against the clock. Long-press a problem to preview it.</p></li>
+      <li><h3>Settings</h3><p>Drill size (min/max), board color, sound, hints, random rotation and more.</p></li>
+      <li><h3>Writing your own SGF</h3><p>Starting position plus correct moves. With multiple paths, comment each final position <b>right</b> or <b>wrong</b>.</p></li>
+      <li><h3>“No verdict” problems</h3><p>Run <b>Maintenance › Find Problems with Unresolved Paths</b>, fix the file, then swipe right › <b>Replace SGF</b>.</p></li>
+    </ul>
+  </div></section>
+
+  <section id="versions" class="band"><div class="wrap">
+    <h2>Version history</h2>
+    <p class="sub">Latest first.</p>
+    <ol class="timeline">
+      <li><b>1.10</b><p>Edit button in drill details; star-point fix for partial boards; magnifier overhang on non-edge sides.</p></li>
+      <li><b>1.9</b><p>Star points in magnifier; “All Problems” jumps to Problems tab; long-press a title to copy it.</p></li>
+      <li><b>1.8</b><p>Replace SGF action; board magnifier for small screens.</p></li>
+    </ol>
+    <details><summary>Show versions 1.0 – 1.7</summary>
+    <ol class="timeline">
+      <li><b>1.7</b><p>Numeric-title handling in drills; fix for missing PL property.</p></li>
+      <li><b>1.6</b><p>Single-path problems excluded from no-verdict report; tag-editing fix.</p></li>
+      <li><b>1.5</b><p>Drill filters &amp; tags; Favorites collection; confetti for best times.</p></li>
+      <li><b>1.4</b><p>Maintenance menu and unresolved-paths report.</p></li>
+      <li><b>1.3</b><p>Reset-all; reset swipe on Most Difficult.</p></li>
+      <li><b>1.2</b><p>Drill size as min/max.</p></li>
+      <li><b>1.1</b><p>Better board cropping; Next button.</p></li>
+      <li><b>1.0</b><p>First release.</p></li>
+    </ol></details>
+  </div></section>
+
+  <section id="privacy"><div class="wrap">
+    <h2>Privacy policy</h2>
+    <p class="sub">Short version: nothing leaves your phone. Last updated 14 August 2026.</p>
+    <div class="privacy">
+      <div><h3>Data collected</h3><p>None — no personal, device, usage, location or any other data.</p></div>
+      <div><h3>Device access</h3><p>None — no camera, photos, microphone, contacts or location.</p></div>
+      <div><h3>Third parties</h3><p>None — no analytics, advertising or payment processors.</p></div>
+      <div><h3>Why</h3><p>It’s a tool for practicing Go problems. Collecting data would be unnecessary and potentially harmful.</p></div>
+    </div>
+  </div></section>
+
+  <section id="contact" class="contact"><div class="wrap">
+    <h2>Questions, bugs, ideas?</h2>
+    <p>I hope this app helps you enjoy studying a bit more.</p>
+    <a class="btn" href="mailto:mrmrsupport@proton.me?subject=MrGoProblemWorkout%20support">mrmrsupport@proton.me</a>
+  </div></section>
+</main>
+<footer>© 2026 Frank Brown</footer>
+</body>
+</html>
